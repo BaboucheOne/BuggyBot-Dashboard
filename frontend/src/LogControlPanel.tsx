@@ -1,37 +1,44 @@
 import React from 'react';
-import { Box, Checkbox, Typography, TextField } from '@mui/material';
+import { Box, Checkbox, Typography } from '@mui/material';
 
 type LogLevel = 'INFO' | 'WARNING' | 'DEBUG' | 'ERROR' | 'FATAL';
 
 const logLevelColors = {
-  INFO: 'black',
-  WARNING: 'orange',
-  DEBUG: 'blue',
-  ERROR: 'red',
-  FATAL: 'darkred',
+  INFO: '#43a8ec',
+  DEBUG: 'green',
+  WARNING: '#ee9801',
+  ERROR: '#e93861',
+  FATAL: '#9c2541',
+};
+
+const capitalizeFirstLetter = (logLevel: LogLevel): string => {
+  return logLevel.charAt(0) + logLevel.slice(1).toLowerCase();
 };
 
 const LogButton: React.FC<{ level: LogLevel }> = ({ level }) => {
   const color = logLevelColors[level];
+  const logLevelText = capitalizeFirstLetter(level)
 
   return (
     <Box
       sx={{
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-between',
+        justifyContent: 'justify-content',
         padding: '8px',
         backgroundColor: color,
         borderRadius: '4px',
         color: 'white',
         marginRight: '4px',
         height: '16px',
-        minWidth: '150px',
+        minWidth: '125px',
       }}
     >
-      <Checkbox sx={{ color: 'white', padding: 0 }} />
-      <Typography sx={{ paddingLeft: '4px' }}>{level}: </Typography>
-      <Typography>234,430</Typography>
+      <Checkbox sx={{ color: '#FFFFFF', padding: 0, '&.Mui-checked': {
+          color: '#FFFFFF',
+        }, }} />
+      <Typography align="left" sx={{ paddingLeft: '4px' }}>{logLevelText}: </Typography>
+      <Typography align="left" sx={{fontWeight: 'bold'}}>234,430</Typography>
     </Box>
   );
 };
@@ -50,8 +57,8 @@ const LogControlPanel: React.FC = () => {
       }}
     >
       <LogButton level="INFO" />
-      <LogButton level="WARNING" />
       <LogButton level="DEBUG" />
+      <LogButton level="WARNING" />
       <LogButton level="ERROR" />
       <LogButton level="FATAL" />
     </Box>
