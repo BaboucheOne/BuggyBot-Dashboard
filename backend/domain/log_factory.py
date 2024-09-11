@@ -32,5 +32,5 @@ class LogFactory:
                     exception=exception,
                 )
             raise LogVersionNotSupportedException(message_data[LogKeys.VERSION])
-        except ValueError as e:
+        except ValueError:
             raise WrongLogFormatException()
