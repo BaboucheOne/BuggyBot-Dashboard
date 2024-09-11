@@ -19,9 +19,15 @@ class LogFileModifiedHandler(FileSystemEventHandler):
 
         self.__log_factory = LogFactory()
 
+        self.__set_last_position_to_end_of_file()
+
     @property
     def file_path(self) -> str:
         return self.__file_path
+
+    def __set_last_position_to_end_of_file(self):
+        with open(self.file_path, "r", encoding="utf-8") as file:
+            self.__last_position = file.tell()
 
     def on_modified(self, event):
         if event.src_path == self.__file_path:
@@ -39,10 +45,8 @@ class LogFileModifiedHandler(FileSystemEventHandler):
                         print(e)
 
     def __read_new_log_entries(self) -> List[str] or None:
-        new_logs: List[str] = []
-        with open(self.file_path, "r") as file:
+        with open(self.file_path, "r", encoding="utf-8") as file:
             file.seek(self.__last_position)
             new_logs = file.readlines()
             self.__last_position = file.tell()
-
-        return new_logs if new_logs else None
+        return new_logs

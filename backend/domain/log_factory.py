@@ -33,5 +33,4 @@ class LogFactory:
                 )
             raise LogVersionNotSupportedException(message_data[LogKeys.VERSION])
         except ValueError as e:
-            print(e, entry.strip().split(" - "))
             raise WrongLogFormatException()

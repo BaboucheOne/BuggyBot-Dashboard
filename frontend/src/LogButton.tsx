@@ -29,8 +29,8 @@ const LogButton: React.FC<{ level: LogLevel, logCount: number, onChange: () => v
         borderRadius: '4px',
         color: 'white',
         marginRight: '4px',
-        height: '24px', // Increased height for better checkbox placement
-        minWidth: '150px', // Increased width for better text visibility
+        height: '24px',
+        minWidth: '150px',
       }}
     >
       <Checkbox
@@ -45,7 +45,7 @@ const LogButton: React.FC<{ level: LogLevel, logCount: number, onChange: () => v
         }}
       />
       <Typography align="left" sx={{ paddingLeft: '4px' }}>{logLevelText}: </Typography>
-      <Typography align="left" sx={{ fontWeight: 'bold' }}>{logCount}</Typography>
+      <Typography align="left" sx={{ fontWeight: 'bold' }}>{Intl.NumberFormat().format(logCount)}</Typography>
     </Box>
   );
 };

@@ -37,7 +37,7 @@ const LogTable: React.FC = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {filteredLogs.map((log, index) => (
+          {filteredLogs.slice().reverse().map((log, index) => (
             <TableRow key={index}>
               <TableCell>
                   <Box mr={1} style={{ color: levelProperties[log.level].color }}>{levelProperties[log.level].icon}</Box>

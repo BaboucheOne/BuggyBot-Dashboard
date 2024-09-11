@@ -20,9 +20,9 @@ async def get_log():
     logs: List[Log] = []
 
     with open(
-        r"C:\Users\clnab\Documents\GitHub\BuggyBot-Dashboard\backend\log.log", "r"
+        r"C:\Users\clnab\Documents\GitHub\BuggyBot-Dashboard\backend\log.log", "r", encoding='utf-8'
     ) as f:
-        lines = deque(f, maxlen=100)
+        lines = deque(f, maxlen=500)
         for line in lines:
             try:
                 log = log_factory.create(line)
