@@ -6,7 +6,7 @@ import BugReportIcon from '@mui/icons-material/BugReport';
 import ErrorIcon from '@mui/icons-material/Error';
 import ReportIcon from '@mui/icons-material/Report';
 import {LogLevel} from "./LogLevel";
-import {LogMessage} from "./LogMessage";
+import {useLogContext} from "./LogContext";
 
 
 const levelProperties: Record<LogLevel, { icon: React.ReactElement; color: string }> = {
@@ -17,11 +17,11 @@ const levelProperties: Record<LogLevel, { icon: React.ReactElement; color: strin
   FATAL: { icon: <ReportIcon />, color: '#9c2541' },
 };
 
-interface LogTableProps {
-  logs: LogMessage[];
-}
 
-const LogTable:React.FC<LogTableProps> = ({ logs }) => {
+const LogTable: React.FC = () => {
+
+  const { filteredLogs } = useLogContext()
+
   return (
     <TableContainer component={Paper}>
       <Table stickyHeader size="small">
@@ -37,7 +37,7 @@ const LogTable:React.FC<LogTableProps> = ({ logs }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {logs.map((log, index) => (
+          {filteredLogs.map((log, index) => (
             <TableRow key={index}>
               <TableCell>
                   <Box mr={1} style={{ color: levelProperties[log.level].color }}>{levelProperties[log.level].icon}</Box>

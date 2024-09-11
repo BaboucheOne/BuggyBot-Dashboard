@@ -1,37 +1,51 @@
-import React from "react";
-import {Box, Checkbox, Typography} from "@mui/material";
+import React from 'react';
+import { Box, Checkbox, Typography } from '@mui/material';
 import {LogLevel} from "./LogLevel";
-import {logLevelColors} from "./LogLevelColors";
 
-
-const capitalizeFirstLetter = (logLevel: LogLevel): string => {
-  return logLevel.charAt(0) + logLevel.slice(1).toLowerCase();
+const logLevelColors: Record<LogLevel, string> = {
+  INFO: '#43a8ec',
+  DEBUG: 'green',
+  WARNING: '#ee9801',
+  ERROR: '#e93861',
+  FATAL: '#9c2541',
 };
 
-const LogButton: React.FC<{ level: LogLevel }> = ({ level }) => {
+const capitalizeFirstLetter = (string: string) => {
+  return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+};
+
+const LogButton: React.FC<{ level: LogLevel, logCount: number, onChange: () => void, checked: boolean }> = ({ level, logCount, onChange, checked }) => {
   const color = logLevelColors[level];
-  const logLevelText = capitalizeFirstLetter(level)
+  const logLevelText = capitalizeFirstLetter(level);
 
   return (
     <Box
       sx={{
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'justify-content',
+        justifyContent: 'flex-start',
         padding: '8px',
         backgroundColor: color,
         borderRadius: '4px',
         color: 'white',
         marginRight: '4px',
-        height: '16px',
-        minWidth: '125px',
+        height: '24px', // Increased height for better checkbox placement
+        minWidth: '150px', // Increased width for better text visibility
       }}
     >
-      <Checkbox sx={{ color: '#FFFFFF', padding: 0, '&.Mui-checked': {
+      <Checkbox
+        checked={checked}
+        onChange={onChange}
+        sx={{
           color: '#FFFFFF',
-        }, }} />
+          padding: 0,
+          '&.Mui-checked': {
+            color: '#FFFFFF',
+          },
+        }}
+      />
       <Typography align="left" sx={{ paddingLeft: '4px' }}>{logLevelText}: </Typography>
-      <Typography align="left" sx={{fontWeight: 'bold'}}>234,430</Typography>
+      <Typography align="left" sx={{ fontWeight: 'bold' }}>{logCount}</Typography>
     </Box>
   );
 };
