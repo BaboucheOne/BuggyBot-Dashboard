@@ -14,7 +14,7 @@ class LogFactory:
 
     def create(self, entry: str) -> Log:
         try:
-            time_code, _, level, message = entry.split(" - ")
+            time_code, _, level, message = entry.strip().split(" - ")
             message_data = json.loads(message)
 
             if message_data[LogKeys.VERSION] == 2:
@@ -32,5 +32,6 @@ class LogFactory:
                     exception=exception,
                 )
             raise LogVersionNotSupportedException(message_data[LogKeys.VERSION])
-        except ValueError:
+        except ValueError as e:
+            print(e, entry.strip().split(" - "))
             raise WrongLogFormatException()

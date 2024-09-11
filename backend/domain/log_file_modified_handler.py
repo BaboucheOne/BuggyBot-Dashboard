@@ -29,8 +29,9 @@ class LogFileModifiedHandler(FileSystemEventHandler):
             if log_entries:
                 for entry in log_entries:
                     try:
-                        log = self.__log_factory.create(entry)
-                        self.__log_queue.add_log(log)
+                        if len(entry.strip()) > 0:
+                            log = self.__log_factory.create(entry)
+                            self.__log_queue.add_log(log)
                     except (
                         LogVersionNotSupportedException,
                         WrongLogFormatException,

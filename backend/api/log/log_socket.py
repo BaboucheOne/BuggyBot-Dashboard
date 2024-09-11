@@ -27,6 +27,7 @@ async def send_logs(
             while not log_queue.is_empty():
                 log = log_queue.get_log()
                 json_log = json.dumps(asdict(log))
+                print("sending", json_log)
                 await manager.send_message(json_log, websocket)
             await asyncio.sleep(0.1)
     except WebSocketDisconnect:
