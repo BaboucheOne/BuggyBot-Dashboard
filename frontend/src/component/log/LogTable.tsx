@@ -28,12 +28,12 @@ const LogTable: React.FC = () => {
         <TableHead>
           <TableRow>
             <TableCell align="left" style={{ padding: '2px 8px', width: '1%' }}></TableCell>
-            <TableCell align="left" style={{ padding: '2px 8px', width: '5%' }}>Level</TableCell>
-            <TableCell align="left" style={{ padding: '2px 8px', width: '5%' }}>Version</TableCell>
-            <TableCell align="left" style={{ padding: '2px 8px', width: '11%' }}>Time</TableCell>
-            <TableCell align="left" style={{ padding: '2px 8px' }}>Method</TableCell>
-            <TableCell align="left" style={{ padding: '2px 8px' }}>Message</TableCell>
-            <TableCell align="left" style={{ padding: '2px 8px', whiteSpace: 'nowrap', width: '5%' }}>Exception</TableCell>
+            <TableCell align="left" style={{ padding: '2px 8px', width: '5%', fontWeight: 'bold', fontSize: 16 }}>Level</TableCell>
+            <TableCell align="left" style={{ padding: '2px 8px', width: '5%', fontWeight: 'bold', fontSize: 16 }}>Version</TableCell>
+            <TableCell align="left" style={{ padding: '2px 8px', width: '11%', fontWeight: 'bold', fontSize: 16 }}>Time</TableCell>
+            <TableCell align="left" style={{ padding: '2px 8px', fontWeight: 'bold', fontSize: 16 }}>Method</TableCell>
+            <TableCell align="left" style={{ padding: '2px 8px', fontWeight: 'bold', fontSize: 16 }}>Message</TableCell>
+            <TableCell align="left" style={{ padding: '2px 8px', whiteSpace: 'nowrap', width: '5%', fontWeight: 'bold', fontSize: 16 }}>Exception</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
