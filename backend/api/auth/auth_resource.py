@@ -1,6 +1,6 @@
-from fastapi import APIRouter, Depends, HTTPException, Response
 from jose import jwt
 from starlette import status
+from fastapi import APIRouter, Depends, HTTPException
 
 from api.auth.request.login_request import LoginRequest
 from api.utility.auth_utility import AuthUtility
@@ -13,12 +13,11 @@ router = APIRouter()
 @router.post("/login")
 async def login(
     login_request: LoginRequest,
-    response: Response,
     configuration: DotEnvConfiguration = Depends(
         lambda: ServiceLocator.get_dependency(DotEnvConfiguration)
     ),
 ):
-    if AuthUtility.verify_password(
+    if not AuthUtility.verify_password(
         login_request.password, configuration.auth_admin_password
     ):
         raise HTTPException(
@@ -33,8 +32,4 @@ async def login(
         algorithm=configuration.auth_algorithm,
     )
 
-    response.set_cookie(
-        key="access_token", value=token, httponly=True, secure=True, samesite="lax"
-    )
-
-    return {"message": "Login successful"}
+    return {"access_token": token, "token_type": "bearer"}

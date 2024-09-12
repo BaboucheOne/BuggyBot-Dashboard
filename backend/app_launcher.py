@@ -21,13 +21,15 @@ def setup_app() -> FastAPI:
     app.add_middleware(
         CORSMiddleware,
         allow_credentials=True,
-        allow_origins=["*"],
+        allow_origins=["http://localhost:3000", "http://127.0.0.1:3000"],
         allow_methods=["*"],
         allow_headers=["*"],
     )
 
     app.include_router(auth_router)
-    app.include_router(log_socket_router, dependencies=[Depends(authenticate_websocket)])
+    app.include_router(
+        log_socket_router, dependencies=[Depends(authenticate_websocket)]
+    )
     app.include_router(log_resource_router, dependencies=[Depends(authenticate_token)])
     app.include_router(health_resource_router)
 

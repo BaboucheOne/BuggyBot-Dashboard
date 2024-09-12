@@ -8,7 +8,7 @@ from config.environment.dotenv_configuration import DotEnvConfiguration
 from config.service_locator import ServiceLocator
 
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="access_token")
 
 
 def __verify_token(token: str, secret_key: str, algorithm: str) -> bool:
@@ -34,7 +34,9 @@ def authenticate_token(
     ),
 ):
     try:
-        __verify_token(token, configuration.auth_secret_key, configuration.auth_algorithm)
+        __verify_token(
+            token, configuration.auth_secret_key, configuration.auth_algorithm
+        )
     except JWTError:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
@@ -45,9 +47,13 @@ def authenticate_token(
 
 async def authenticate_websocket(websocket: WebSocket):
     token = websocket.query_params.get("token")
-    configuration: DotEnvConfiguration = ServiceLocator.get_dependency(DotEnvConfiguration)
+    configuration: DotEnvConfiguration = ServiceLocator.get_dependency(
+        DotEnvConfiguration
+    )
 
-    if not token or not __verify_token(token, configuration.auth_secret_key, configuration.auth_algorithm):
+    if not token or not __verify_token(
+        token, configuration.auth_secret_key, configuration.auth_algorithm
+    ):
         await websocket.close(code=4004)
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
