@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
-import { LogMessage } from './LogMessage';
-import {LogLevel} from "./LogLevel";
+import { LogMessage } from '../domain/log/LogMessage';
+import {LogLevel} from "../domain/log/LogLevel";
 
 interface LogContextProps {
   logs: LogMessage[];

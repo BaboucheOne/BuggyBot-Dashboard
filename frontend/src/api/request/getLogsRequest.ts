@@ -1,4 +1,4 @@
-import {COOKIES_TOKEN_KEY, GET_LOG_URL, NUMBER_OF_LOG_TO_REQUEST} from "./constant";
+import {COOKIES_TOKEN_KEY, GET_LOG_URL, NUMBER_OF_LOG_TO_REQUEST} from "../../config/constant";
 import Cookies from "js-cookie";
 
 const getLogsRequest = async (): Promise<any> => {

@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import './App.css';
-import LogTable from "./LogTable";
-import LogControlPanel from "./LogControlPanel";
-import WebSocketStatus from "./WebSocketStatus";
+import LogTable from "./component/log/LogTable";
+import LogControlPanel from "./component/log/LogControlPanel";
+import WebSocketStatus from "./component/WebSocketStatus";
 import {Box} from "@mui/material";
-import useWebSocketLogger from "./useWebSocketLogger";
-import LoginModal from "./LoginModal";
-import {useAuthContext} from "./AuthContext";
+import useWebSocketLogger from "./domain/log/useWebSocketLogger";
+import LoginModal from "./component/log/LoginModal";
+import {useAuthContext} from "./context/AuthContext";
 
 
 function App() {

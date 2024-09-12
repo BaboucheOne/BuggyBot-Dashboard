@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Checkbox, Typography } from '@mui/material';
-import {LogLevel} from "./LogLevel";
+import {LogLevel} from "../../domain/log/LogLevel";
 
 const logLevelColors: Record<LogLevel, string> = {
   INFO: '#43a8ec',

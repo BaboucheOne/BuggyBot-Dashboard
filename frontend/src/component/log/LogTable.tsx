@@ -5,8 +5,8 @@ import WarningIcon from '@mui/icons-material/Warning';
 import BugReportIcon from '@mui/icons-material/BugReport';
 import ErrorIcon from '@mui/icons-material/Error';
 import ReportIcon from '@mui/icons-material/Report';
-import {LogLevel} from "./LogLevel";
-import {useLogContext} from "./LogContext";
+import {LogLevel} from "../../domain/log/LogLevel";
+import {useLogContext} from "../../context/LogContext";
 
 
 const levelProperties: Record<LogLevel, { icon: React.ReactElement; color: string }> = {

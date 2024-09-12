@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import useWebSocket from 'react-use-websocket';
 import { LogMessage } from './LogMessage';
-import { useLogContext } from './LogContext';
-import getLogsRequest from "./getLogsRequest";
-import {COOKIES_TOKEN_KEY, WEBSOCKET_LOG_URL} from "./constant";
+import { useLogContext } from '../../context/LogContext';
+import getLogsRequest from "../../api/request/getLogsRequest";
+import {COOKIES_TOKEN_KEY, WEBSOCKET_LOG_URL} from "../../config/constant";
 import Cookies from "js-cookie";
-import {useAuthContext} from "./AuthContext";
+import {useAuthContext} from "../../context/AuthContext";
 import {socket} from "./LogWebSocketManager";
 
 const useWebSocketLogger = () => {

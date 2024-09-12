@@ -1,6 +1,6 @@
 import React, { createContext, useState, useContext, ReactNode } from "react";
 import Cookies from "js-cookie";
-import { COOKIES_TOKEN_KEY } from "./constant";
+import { COOKIES_TOKEN_KEY } from "../config/constant";
 
 interface AuthContextType {
   isLoggedIn: boolean;

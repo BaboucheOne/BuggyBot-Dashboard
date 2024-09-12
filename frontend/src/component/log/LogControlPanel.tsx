@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box } from '@mui/material';
+import {LogLevel} from "../../domain/log/LogLevel";
+import {useLogContext} from "../../context/LogContext";
 import LogButton from "./LogButton";
-import {LogLevel} from "./LogLevel";
-import {useLogContext} from "./LogContext";
 
 const LogControlPanel: React.FC = () => {
 

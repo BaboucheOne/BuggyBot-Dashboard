@@ -1,4 +1,4 @@
-import {LOGIN_URL,} from "./constant";
+import {LOGIN_URL,} from "../../config/constant";
 
 const loginRequest = async (username: string, password: string): Promise<any> => {
   try {

@@ -1,9 +1,9 @@
 import React, { useState, FormEvent, ChangeEvent } from "react";
 import { Modal, Box, TextField, Button, Typography } from "@mui/material";
 import Cookies from "js-cookie";
-import {COOKIES_TOKEN_KEY} from "./constant";
-import {useAuthContext} from "./AuthContext";
-import loginRequest from "./loginRequest";
+import {COOKIES_TOKEN_KEY} from "../../config/constant";
+import {useAuthContext} from "../../context/AuthContext";
+import loginRequest from "../../api/request/loginRequest";
 
 interface LoginModalProps {
   open: boolean;
