@@ -41,5 +41,4 @@ async def get_log(
                 WrongLogFormatException,
             ) as e:
                 print(e)
-
-        return logs
+    return logs

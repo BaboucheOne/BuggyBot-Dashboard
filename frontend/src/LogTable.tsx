@@ -23,17 +23,17 @@ const LogTable: React.FC = () => {
   const { filteredLogs } = useLogContext()
 
   return (
-    <TableContainer component={Paper}>
-      <Table stickyHeader size="small">
+    <TableContainer component={Paper} sx={{ overflowX: 'initial' }}>
+      <Table stickyHeader aria-label="sticky table" size="small">
         <TableHead>
           <TableRow>
-            <TableCell align="left" style={{ padding: '2px 8px', width: '5%' }}></TableCell>
+            <TableCell align="left" style={{ padding: '2px 8px', width: '1%' }}></TableCell>
             <TableCell align="left" style={{ padding: '2px 8px', width: '5%' }}>Level</TableCell>
             <TableCell align="left" style={{ padding: '2px 8px', width: '5%' }}>Version</TableCell>
-            <TableCell align="left" style={{ padding: '2px 8px', width: '10%' }}>Time</TableCell>
+            <TableCell align="left" style={{ padding: '2px 8px', width: '11%' }}>Time</TableCell>
             <TableCell align="left" style={{ padding: '2px 8px' }}>Method</TableCell>
             <TableCell align="left" style={{ padding: '2px 8px' }}>Message</TableCell>
-            <TableCell align="left" style={{ padding: '2px 8px', whiteSpace: 'nowrap', width: '10%' }}>Exception</TableCell>
+            <TableCell align="left" style={{ padding: '2px 8px', whiteSpace: 'nowrap', width: '5%' }}>Exception</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
