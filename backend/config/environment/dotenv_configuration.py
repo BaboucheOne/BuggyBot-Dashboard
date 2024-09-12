@@ -48,3 +48,15 @@ class DotEnvConfiguration:
     @property
     def log_file_path(self) -> str:
         return self.__get_string(DotenvConfigurationKey.LOG_FILE_PATH)
+
+    @property
+    def auth_secret_key(self) -> str:
+        return self.__get_string(DotenvConfigurationKey.AUTH_SECRET_KEY)
+
+    @property
+    def auth_algorithm(self) -> str:
+        return self.__get_string(DotenvConfigurationKey.AUTH_ALGORITHM)
+
+    @property
+    def auth_admin_password(self) -> str:
+        return self.__get_string(DotenvConfigurationKey.AUTH_ADMIN_PASSWORD)

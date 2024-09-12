@@ -1,10 +1,12 @@
 import uvicorn
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
 from starlette.middleware.cors import CORSMiddleware
 
+from api.auth.auth_resource import router as auth_router
 from api.log.log_socket import router as log_socket_router
 from api.log.log_resource import router as log_resource_router
 from api.health.health_resource import router as health_resource_router
+from middleware.auth.auth_middleware import authenticate_token, authenticate_websocket
 
 
 def launch():
@@ -24,8 +26,9 @@ def setup_app() -> FastAPI:
         allow_headers=["*"],
     )
 
-    app.include_router(log_socket_router)
-    app.include_router(log_resource_router)
+    app.include_router(auth_router)
+    app.include_router(log_socket_router, dependencies=[Depends(authenticate_websocket)])
+    app.include_router(log_resource_router, dependencies=[Depends(authenticate_token)])
     app.include_router(health_resource_router)
 
     return app
