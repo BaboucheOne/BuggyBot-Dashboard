@@ -1,0 +1,19 @@
+services:
+    backend:
+        image: baboucheone/buggybot:backend
+        container_name: buggybot-backend
+        env_file:
+            - .env.prod
+        ports:
+            - "8080"
+        volumes:
+            - /etc/localtime:/etc/localtime:ro
+            - ../buggybot/logs:backend/logs
+        restart: always
+        
+    frontend:
+        image: baboucheone/buggybot:frontend
+        container_name: buggybot-frontend
+        ports:
+            - "80"
+        restart: always
