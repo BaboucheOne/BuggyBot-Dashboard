@@ -1,3 +1,4 @@
+import os
 from collections import deque
 from typing import List
 
@@ -30,7 +31,8 @@ async def get_log(
     log_factory = LogFactory()
     logs: List[Log] = []
 
-    with open(configuration.log_file_path, "r", encoding="utf-8") as f:
+    log_file_abspath = os.path.abspath(configuration.log_file_path)
+    with open(log_file_abspath, "r", encoding="utf-8") as f:
         lines = deque(f, maxlen=amount)
         for line in lines:
             try:

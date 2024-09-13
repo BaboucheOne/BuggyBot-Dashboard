@@ -1,3 +1,4 @@
+import os
 from typing import List
 
 from watchdog.events import FileSystemEventHandler
@@ -13,7 +14,7 @@ from domain.exception.wrong_log_format_exception import WrongLogFormatException
 class LogFileModifiedHandler(FileSystemEventHandler):
 
     def __init__(self, file_path: str, log_queue: LogQueue):
-        self.__file_path = file_path
+        self.__file_path = os.path.abspath(file_path)
         self.__log_queue = log_queue
         self.__last_position = 0
 
