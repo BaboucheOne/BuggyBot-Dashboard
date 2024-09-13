@@ -1,5 +1,5 @@
 # Frontend
-Oh... wait. Is this a shiny that appeared ?
+Oh... wait. Is this a shiny UI that appeared ?
 
 # Building :hammer_and_wrench:
 ## :ship: Docker
@@ -10,5 +10,5 @@ Oh... wait. Is this a shiny that appeared ?
 # Launching :rocket:
 
 ## :computer: On machine
-### `npm install`
-### `npm start`
+1. `npm install`
+2. `npm start`
