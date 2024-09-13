@@ -50,6 +50,7 @@ python main.py --env prod
 In development:
 ```commandline
 python main.py --env dev
+```
 
 ## Commands
 To fix linter and format errors run these two commands:
