@@ -10,7 +10,7 @@ services:
             - /etc/localtime:/etc/localtime:ro
             - ../buggybot/logs:backend/logs
         restart: always
-        
+
     frontend:
         image: baboucheone/buggybot:frontend
         container_name: buggybot-frontend
