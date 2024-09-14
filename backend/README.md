@@ -29,6 +29,7 @@ Beep boop under the hood of the dashboard.
     LOG_FILE_PATH=logs/log.log
     AUTH_SECRET_KEY=a_random_secret_key
     AUTH_ALGORITHM=HS256
+    AUTH_ADMIN_USERNAME=a_username
     AUTH_ADMIN_PASSWORD=a_password
     ```
 
