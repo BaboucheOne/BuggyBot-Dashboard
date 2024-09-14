@@ -3,12 +3,12 @@ from typing import List
 
 from watchdog.events import FileSystemEventHandler
 
-from domain.log_factory import LogFactory
-from domain.log_queue import LogQueue
-from domain.exception.log_version_not_supported_exception import (
+from src.domain.log_factory import LogFactory
+from src.domain.log_queue import LogQueue
+from src.domain.exception.log_version_not_supported_exception import (
     LogVersionNotSupportedException,
 )
-from domain.exception.wrong_log_format_exception import WrongLogFormatException
+from src.domain.exception.wrong_log_format_exception import WrongLogFormatException
 
 
 class LogFileModifiedHandler(FileSystemEventHandler):

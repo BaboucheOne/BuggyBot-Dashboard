@@ -4,8 +4,8 @@ from starlette import status
 from fastapi.security import OAuth2PasswordBearer
 from starlette.websockets import WebSocket
 
-from config.environment.dotenv_configuration import DotEnvConfiguration
-from config.service_locator import ServiceLocator
+from src.config.environment.dotenv_configuration import DotEnvConfiguration
+from src.config.service_locator import ServiceLocator
 
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="access_token")

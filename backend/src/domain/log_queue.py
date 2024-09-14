@@ -1,6 +1,6 @@
 from queue import Queue
 
-from domain.log import Log
+from src.domain.log import Log
 
 
 class LogQueue:

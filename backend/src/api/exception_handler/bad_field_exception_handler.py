@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from starlette.responses import JSONResponse
 
-from api.log.exception.bad_field_exception import BadFieldException
+from src.api.log.exception.bad_field_exception import BadFieldException
 
 app = FastAPI()
 

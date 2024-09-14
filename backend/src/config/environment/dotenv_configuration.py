@@ -2,11 +2,11 @@ import os
 
 from dotenv import load_dotenv, find_dotenv
 
-from config.constant import DotenvConfigurationKey
-from config.environment.exception.environment_variable_type_exception import (
+from src.config.constant import DotenvConfigurationKey
+from src.config.environment.exception.environment_variable_type_exception import (
     EnvironmentVariableTypeException,
 )
-from config.environment.exception.missing_environment_variable_exception import (
+from src.config.environment.exception.missing_environment_variable_exception import (
     MissingEnvironmentVariableException,
 )
 
@@ -56,6 +56,10 @@ class DotEnvConfiguration:
     @property
     def auth_algorithm(self) -> str:
         return self.__get_string(DotenvConfigurationKey.AUTH_ALGORITHM)
+
+    @property
+    def auth_admin_username(self) -> str:
+        return self.__get_string(DotenvConfigurationKey.AUTH_ADMIN_USERNAME)
 
     @property
     def auth_admin_password(self) -> str:

@@ -1,11 +1,11 @@
 import json
 
-from domain.constant import LogKeys
-from domain.log import Log
-from domain.exception.log_version_not_supported_exception import (
+from src.domain.constant import LogKeys
+from src.domain.log import Log
+from src.domain.exception.log_version_not_supported_exception import (
     LogVersionNotSupportedException,
 )
-from domain.exception.wrong_log_format_exception import WrongLogFormatException
+from src.domain.exception.wrong_log_format_exception import WrongLogFormatException
 
 
 class LogFactory:

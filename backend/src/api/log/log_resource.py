@@ -4,15 +4,15 @@ from typing import List
 
 from fastapi import APIRouter, Depends
 
-from api.log.exception.bad_field_exception import BadFieldException
-from config.environment.dotenv_configuration import DotEnvConfiguration
-from config.service_locator import ServiceLocator
-from domain.exception.log_version_not_supported_exception import (
+from src.api.log.exception.bad_field_exception import BadFieldException
+from src.config.environment.dotenv_configuration import DotEnvConfiguration
+from src.config.service_locator import ServiceLocator
+from src.domain.exception.log_version_not_supported_exception import (
     LogVersionNotSupportedException,
 )
-from domain.exception.wrong_log_format_exception import WrongLogFormatException
-from domain.log import Log
-from domain.log_factory import LogFactory
+from src.domain.exception.wrong_log_format_exception import WrongLogFormatException
+from src.domain.log import Log
+from src.domain.log_factory import LogFactory
 
 router = APIRouter()
 

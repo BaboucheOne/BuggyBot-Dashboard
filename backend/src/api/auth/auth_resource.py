@@ -2,9 +2,9 @@ from jose import jwt
 from starlette import status
 from fastapi import APIRouter, Depends, HTTPException
 
-from api.auth.request.login_request import LoginRequest
-from config.environment.dotenv_configuration import DotEnvConfiguration
-from config.service_locator import ServiceLocator
+from src.api.auth.request.login_request import LoginRequest
+from src.config.environment.dotenv_configuration import DotEnvConfiguration
+from src.config.service_locator import ServiceLocator
 
 router = APIRouter()
 
@@ -17,7 +17,7 @@ async def login(
     ),
 ):
     if (
-        login_request.password == configuration.auth_admin_password
+        not login_request.username == configuration.auth_admin_username
         or not login_request.password == configuration.auth_admin_password
     ):
         raise HTTPException(

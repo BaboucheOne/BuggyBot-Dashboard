@@ -1,15 +1,14 @@
 import argparse
 import os
 
-import app_launcher
-from config.constant import ConfigurationFilename
-from config.environment.dotenv_configuration import DotEnvConfiguration
-from config.service_locator import ServiceLocator
-from domain.file_watcher import FileWatcher
-from domain.log_file_modified_handler import LogFileModifiedHandler
-from domain.log_queue import LogQueue
-from api.log.log_connection_manager import LogsConnectionManager
-
+from src import app_launcher
+from src.config.constant import ConfigurationFilename
+from src.config.environment.dotenv_configuration import DotEnvConfiguration
+from src.config.service_locator import ServiceLocator
+from src.domain.file_watcher import FileWatcher
+from src.domain.log_file_modified_handler import LogFileModifiedHandler
+from src.api.log.log_connection_manager import LogsConnectionManager
+from src.domain.log_queue import LogQueue
 
 LAUNCH_DEVELOPMENT_CONTEXT_NAME = "dev"
 LAUNCH_DOCKER_CONTEXT_NAME = "docker"
@@ -59,8 +58,6 @@ def main():
         DotEnvConfiguration,
         dot_env_configuration,
     )
-
-    print(dot_env_configuration.log_file_path)
 
     if not os.path.isfile(dot_env_configuration.log_file_path):
         print(f"File {dot_env_configuration.log_file_path} does not exists. Exiting...")

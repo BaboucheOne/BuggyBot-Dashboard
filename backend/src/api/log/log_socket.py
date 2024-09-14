@@ -5,9 +5,9 @@ from dataclasses import asdict
 from fastapi import APIRouter, Depends, WebSocket
 from starlette.websockets import WebSocketDisconnect, WebSocketState
 
-from config.service_locator import ServiceLocator
-from domain.log_queue import LogQueue
-from api.log.log_connection_manager import LogsConnectionManager
+from src.config.service_locator import ServiceLocator
+from src.domain.log_queue import LogQueue
+from src.api.log.log_connection_manager import LogsConnectionManager
 
 router = APIRouter()
 

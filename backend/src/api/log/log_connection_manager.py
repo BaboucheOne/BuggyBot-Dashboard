@@ -1,4 +1,4 @@
-from api.utility.connection_manager import ConnectionManager
+from src.api.utility.connection_manager import ConnectionManager
 
 
 class LogsConnectionManager(ConnectionManager):
