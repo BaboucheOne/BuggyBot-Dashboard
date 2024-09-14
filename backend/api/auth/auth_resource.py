@@ -3,7 +3,6 @@ from starlette import status
 from fastapi import APIRouter, Depends, HTTPException
 
 from api.auth.request.login_request import LoginRequest
-from api.utility.auth_utility import AuthUtility
 from config.environment.dotenv_configuration import DotEnvConfiguration
 from config.service_locator import ServiceLocator
 
@@ -17,8 +16,9 @@ async def login(
         lambda: ServiceLocator.get_dependency(DotEnvConfiguration)
     ),
 ):
-    if not AuthUtility.verify_password(
-        login_request.password, configuration.auth_admin_password
+    if (
+        login_request.password == configuration.auth_admin_password
+        or not login_request.password == configuration.auth_admin_password
     ):
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,

@@ -72,7 +72,7 @@ def main():
     file_watcher = FileWatcher(log_file_modified_handler)
     file_watcher.start()
 
-    app_launcher.launch()
+    app_launcher.launch(dot_env_configuration)
 
 
 if __name__ == "__main__":

@@ -1,4 +1,4 @@
-export const SERVER_ADDRESS: string = "127.0.0.1";
+export const SERVER_ADDRESS: string = "74.208.112.243";
 export const SERVER_PORT: number = 8080;
 export const GET_LOG_ENDPOINT: string = "log";
 export const WEBSOCKET_LOG_ENDPOINT: string = "log";

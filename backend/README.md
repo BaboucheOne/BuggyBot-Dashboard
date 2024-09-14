@@ -26,7 +26,7 @@ Beep boop under the hood of the dashboard.
     ```md
     SERVER_ADDRESS=127.0.0.1
     SERVER_PORT=8080
-    LOG_FILE_PATH=log.log
+    LOG_FILE_PATH=logs/log.log
     AUTH_SECRET_KEY=a_random_secret_key
     AUTH_ALGORITHM=HS256
     AUTH_ADMIN_PASSWORD=a_password

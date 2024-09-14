@@ -6,13 +6,13 @@ from api.auth.auth_resource import router as auth_router
 from api.log.log_socket import router as log_socket_router
 from api.log.log_resource import router as log_resource_router
 from api.health.health_resource import router as health_resource_router
+from config.environment.dotenv_configuration import DotEnvConfiguration
 from middleware.auth.auth_middleware import authenticate_token, authenticate_websocket
 
 
-def launch():
+def launch(configuration: DotEnvConfiguration):
     app = setup_app()
-
-    uvicorn.run(app, host="127.0.0.1", port=8080)
+    uvicorn.run(app, host=configuration.server_address, port=configuration.server_port)
 
 
 def setup_app() -> FastAPI:
@@ -21,7 +21,7 @@ def setup_app() -> FastAPI:
     app.add_middleware(
         CORSMiddleware,
         allow_credentials=True,
-        allow_origins=["http://localhost:3000", "http://127.0.0.1:3000"],
+        allow_origins=["*"],
         allow_methods=["*"],
         allow_headers=["*"],
     )
